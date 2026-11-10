@@ -1,8 +1,8 @@
 name: daily-update
 on:
   schedule:
-    - cron: "30 1 * * 2-6"   # 北京时间 09:30（周二至周六），交易所T+1早间正式份额
-    - cron: "0 13 * * 1-5"   # UTC 13:00，补抓美股发行商前一日数据
+    # GitHub 定时任务常延迟数小时，所以多排几次；数据没变就不提交
+    - cron: "17 1,4,7,10,13,16,19,22 * * 1-6"   # 每 3 小时一次（周一至周六 UTC）
   workflow_dispatch:
 permissions:
   contents: write
